@@ -42,9 +42,9 @@ end = time.time()
 
 print("Character | Huffman Code")
 print("------------------------")
-for ch in set(text):
+for ch in text:
     for symbol, code in codes:
-        if symbol == ch:
+        if ch == symbol:
             print(f"    {ch}     |    {code}")
             break
 
