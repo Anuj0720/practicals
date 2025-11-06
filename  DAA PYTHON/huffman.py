@@ -13,6 +13,10 @@ def huffman_encoding(text):
     heap = [[weight, [char, ""]] for char, weight in freq.items()]
     heapq.heapify(heap)
 
+    if len(heap) == 1:
+        char = heap[0][1][0]
+        return [[char, "0"]]
+
     # Assign Binary Codes
     while len(heap) > 1:
         low1 = heapq.heappop(heap)
@@ -38,7 +42,7 @@ end = time.time()
 
 print("Character | Huffman Code")
 print("------------------------")
-for ch in text:
+for ch in set(text):
     for symbol, code in codes:
         if symbol == ch:
             print(f"    {ch}     |    {code}")
